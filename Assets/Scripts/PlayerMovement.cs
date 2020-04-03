@@ -29,10 +29,10 @@ public class PlayerMovement : MonoBehaviour
         changeInPosition = Vector3.zero;
         changeInPosition.x = Input.GetAxis("Horizontal");
         changeInPosition.y = Input.GetAxis("Vertical");
-        UpdateAnimationAndMove();
+        UpdateAnimationAndMovement();
     }
 
-    void UpdateAnimationAndMove()
+    void UpdateAnimationAndMovement()
     {
         if (changeInPosition != Vector3.zero)
         {
@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnimations.SetBool("moving", false);
         }
     }
+    // Function for player movement. Change speed variable in Unity
     void MoveCharacter()
     {
         rigidBody.MovePosition(transform.position + changeInPosition * speed * Time.deltaTime);
